@@ -1,1 +1,4 @@
-edt-result.out
+test/edt-result.out
+test/src/
+test/edt-project/
+test/workspace/
