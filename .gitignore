@@ -2,5 +2,5 @@ test/edt-result.out
 test/src/
 test/edt-project/
 test/workspace/
-test/edt-json.json
+test/*.json
 *.ospx
