@@ -61,7 +61,7 @@ sonar.externalIssuesReportPaths=edt-json.json
 
 ### Файл настроек
 
-Для создания файла используется команда `p` или `prepare`.
+Для создания файла используется команда `p` или `prepare`.  
 `GENERIC_ISSUE_SETTINGS_JSON` - Путь к файлу настроек. Если файл существует, то он будет обновлен.  
 `GENERIC_ISSUE_JSON` - Путь к файлам generic-issue.json, на основе которых будет создан файл настроек.
 
