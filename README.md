@@ -45,12 +45,11 @@ opm install edt-export-bugs
 ```
 sonar.host.url=http://localhost:9000
 sonar.projectKey=UNF
-sonar.projectVersion=1.16
+sonar.projectVersion=1.6.17
 sonar.sources=src
 sonar.sourceEncoding=UTF-8
 sonar.inclusions=**/*.bsl
-sonar.bsl.languageserver.reportPaths=bsl-json.json
-sonar.externalIssuesReportPaths=edt-json.json
+sonar.externalIssuesReportPaths=edt-json.json,acc-generic-issue.json,bsl-generic-json.json
 ```
 
 ## Переопределение файла с ошибками
@@ -91,6 +90,29 @@ sonar.externalIssuesReportPaths=edt-json.json
 
 Настройки проверяются и применяются по очереди, поэтому могут друг друга переопределять.
 
+## Применение настроек и удаление файлов на поддержке
+
 Для применения файла настроек к файлам используется команда `t` или `transform`.
 
-Пример команды `edt-export-bugs transform ./test/settigs.json ./test/acc-generic-issue.json,./test/edt-json.json`
+Аргумент `GENERIC_ISSUE_JSON` - путь к отчетам через запятую. Может быть задан через переменную окружения.
+
+Опция `s settings` - путь к файлу настроек. Может быть задан через переменную окружения `GENERIC_ISSUE_SETTINGS_JSON`.
+
+Опция `src` - путь к каталогу исходных файлов. Используется для получения информации о поддержке.
+
+Опция `r remove_support` - уровень удаляемой поддержки.  
+    0 - удалить файлы на замке,  
+	1 - удалить файлы на замке и на поддержке  
+	2 - удалить файлы на замке, на поддержке и снятые с поддержки  
+
+Пример команды:
+
+```bat
+@set GENERIC_ISSUE_SETTINGS_JSON=%1conf\settigs.json
+@set GENERIC_ISSUE_JSON=%1acc-generic-issue.json,%1bsl-generic-json.json,%1edt-json.json
+@set SRC=%1src
+
+@call edt-export-bugs convert "%1temp\edt-result.out" "%1edt-json.json" 
+
+@call edt-export-bugs transform -r=1
+```

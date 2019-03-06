@@ -1,7 +1,5 @@
 @chcp 65001
 
-set VERSION=8.3.12.1567
-
 set EDT_PROJECT_VERSION=8.3.12
 set EDT_VERSION=1.10
 
@@ -9,7 +7,6 @@ set WORKSPACE=%~dp0workspace
 set SRC=%~dp0src
 set PROJECT_PATH=%~dp0edt-project
 set EDT_VALIDATION_RESULT=%~dp0edt-result.out
-set PLATFORM=c:\Program Files\1cv8\%VERSION%\bin\1cv8.exe
 
 set RING_OPTS=-Dfile.encoding=UTF-8 -Dosgi.nl=ru
 
