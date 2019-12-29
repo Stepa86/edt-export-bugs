@@ -1,4 +1,7 @@
 # edt-export
+
+Репозиторий устарел. Актуальное приложение теперь тут https://github.com/Stepa86/stebi
+
 Экспорт диагностик 1С: EDT для SonarQube 1C (BSL) Community Plugin.
 
 Покажет проверки от 1С: EDT в Сонаре.
